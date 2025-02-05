@@ -1,0 +1,8 @@
+<h2>hello there!</h2>
+<h1>your name: {{ MyName }}</h1>
+<h3>nickname: {{ user.name }}</h3>
+<p>your age: {{ user.age }}</p>
+<br />
+<button (click)="showInfo()">click me!</button>
+<br />
+<input type="text" [ngModel]="MyName" (ngModelChange)="MyName = $event" />
