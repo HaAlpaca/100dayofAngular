@@ -3,39 +3,79 @@ import { TabPanelComponent } from '../tab-panel/tab-panel.component';
 
 @Component({
   selector: 'app-tab-group',
-  templateUrl: './tab-group.component.html',
-  styleUrls: ['./tab-group.component.sass'],
+  template: `
+    <div class="tab-headers">
+      <div
+        class="tab-header-item"
+        *ngFor="let tab of tabPanelList; let idx = index"
+        [class.active]="idx === activeIndex"
+        (click)="selectItem(idx)"
+      >
+        {{ tab.title }}
+        <button (click)="removeTab(tab)">x</button>
+      </div>
+    </div>
+    <div class="tab-body" *ngIf="tabPanelList.length; else noTabs">
+      <ng-container
+        *ngTemplateOutlet="tabPanelList[activeIndex].panelBody"
+      ></ng-container>
+    </div>
+    <ng-template #noTabs> No more tabs. </ng-template>
+  `,
+  styles: [
+    `
+      .tab-headers
+        display: flex
+        flex-direction: row
+        border-bottom: 1px solid #ccc
+
+      .tab-header-item
+        padding: 5px 10px
+        cursor: pointer
+        border: 1px solid #ccc
+        border-bottom: none
+      .tab-header-item:hover
+        background-color: #eee
+
+      .tab-header-item.active
+        border: 1px solid red
+        background-color: #ccc
+
+      .tab-body
+        padding: 10px
+
+    `,
+  ],
 })
 export class TabGroupComponent implements OnInit {
+  // list danh sách các tab
   tabPanelList: TabPanelComponent[] = [];
 
-  @Input() tabActiveIndex = 0;
+  @Input() activeIndex = 0;
   @Output() tabActiveChange = new EventEmitter<number>();
   constructor() {}
 
   ngOnInit() {}
-
-  selectItem(idx: number) {
-    this.tabActiveIndex = idx;
-    this.tabActiveChange.emit(idx);
+  selectItem(index: number) {
+    this.activeIndex = index;
+    this.tabActiveChange.emit(index);
   }
-
-  addTabPanel(tab: TabPanelComponent) {
+  addTab(tab: TabPanelComponent) {
     this.tabPanelList.push(tab);
   }
-  removeTabPanel(tab: TabPanelComponent) {
-    let index = -1;
-    const tabPanelList: TabPanelComponent[] = [];
-    this.tabPanelList.forEach((item, idx) => {
-      if (tab === item) {
-        index = idx;
-        return;
+  removeTab(tab: TabPanelComponent) {
+    let found = -1;
+    this.tabPanelList = this.tabPanelList.filter((tp, index) => {
+      if (tp === tab) {
+        found = index;
+        return false;
       }
-      tabPanelList.push(item);
+      return true;
     });
-    this.tabPanelList = tabPanelList;
-    if (index !== -1) {
-      this.selectItem(0);
+    if (found === this.activeIndex) {
+      this.tabActiveChange.emit(
+        found === this.tabPanelList.length ? found - 1 : found
+      );
     }
   }
 }

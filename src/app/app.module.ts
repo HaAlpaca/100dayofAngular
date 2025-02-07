@@ -17,8 +17,36 @@ import { FlexComponent } from './d12/flex/flex.component';
 import { CardComponent } from './card/card.component';
 import { TabGroupComponent } from './d16/tab-group/tab-group.component';
 import { TabPanelComponent } from './d16/tab-panel/tab-panel.component';
+import { Input2Component } from './d7/input2/input2.component';
+import { TodoListComponent } from './d8/todo-list/todo-list.component';
+import { TodoDetailsComponent } from './d8/todo-details/todo-details.component';
+import { SizerComponent } from './d9/sizer/sizer.component';
+import { TabsComponent } from './d14/tabs/tabs.component';
+import { TabBsGroupComponent } from './d16/tab-bs-group/tab-bs-group.component';
 @NgModule({
-  declarations: [AppComponent, HelloComponent, NgIfComponent, NgForComponent, ClassStyleBindingComponent, InputBindingComponent, OutputBindingComponent, AuthorListComponent, AuthorDetailsComponent, CustomTwowaydatabindingComponent, ToggleComponent, FlexComponent, CardComponent, TabGroupComponent, TabPanelComponent],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    NgIfComponent,
+    NgForComponent,
+    ClassStyleBindingComponent,
+    InputBindingComponent,
+    OutputBindingComponent,
+    AuthorListComponent,
+    AuthorDetailsComponent,
+    CustomTwowaydatabindingComponent,
+    ToggleComponent,
+    FlexComponent,
+    CardComponent,
+    TabGroupComponent,
+    TabPanelComponent,
+    Input2Component,
+    TodoListComponent,
+    TodoDetailsComponent,
+    SizerComponent,
+    TabsComponent,
+    TabBsGroupComponent,
+  ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

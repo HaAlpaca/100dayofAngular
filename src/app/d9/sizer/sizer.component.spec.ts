@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabGroupComponent } from './tab-group.component';
+import { SizerComponent } from './sizer.component';
 
-describe('TabGroupComponent', () => {
-  let component: TabGroupComponent;
-  let fixture: ComponentFixture<TabGroupComponent>;
+describe('SizerComponent', () => {
+  let component: SizerComponent;
+  let fixture: ComponentFixture<SizerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabGroupComponent ]
+      declarations: [ SizerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TabGroupComponent);
+    fixture = TestBed.createComponent(SizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

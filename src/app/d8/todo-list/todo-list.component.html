@@ -1,0 +1,8 @@
+<app-todo-details
+  *ngFor="let todo of todos"
+  [todo]="todo"
+  (select)="changeTodo($event)"
+></app-todo-details>
+
+<br />
+currentTodo: {{ currentTodo.title }}

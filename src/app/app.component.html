@@ -36,11 +36,11 @@ Age: {{ user.age }}
     <span *ngIf="isEven">is even</span>
     <span *ngIf="isOdd">is odd</span>
   </li>
-</ol> -->
+</ol>
 
-<!-- <br />
+<br /> -->
 
-<ng-container *ngIf="users.length > 1; else noUser">
+<!-- <ng-container *ngIf="users.length > 1; else noUser">
   <ng-template
     ngFor
     let-user
@@ -62,53 +62,70 @@ Age: {{ user.age }}
 <br />
 <button (click)="isDanger = !isDanger">Click border!</button>
 <button (click)="isWarning = !isWarning">Click background</button>
-<br /> -->
-<!-- <div
+<br />
+
+<div
   class="box"
   [class.red-border]="isDanger"
   [class.yellow-background]="isWarning"
-></div> -->
-<!-- <div
+></div>
+
+<div
   class="box"
   [class]="{ 'red-border': isDanger, 'yellow-background': isWarning }"
 ></div> -->
+
 <!-- <p [style.color]="'red'" [style.backgroundColor]="'yellow'">
   Lorem ipsum dolor sit amet consectet
-</p> -->
-<!-- <p
+</p>
+
+<p
   [style.color]="isDanger ? 'red' : 'blue'"
-  [style]="{  backgroundColor: 'yellow' }"
+  [style]="{ backgroundColor: 'yellow' }"
 >
   Lorem ipsum dolor sit amet consectet
 </p> -->
 
 <!-- *********** Section 7 Input binding *********** -->
-<!--
-  <button (click)="currentProgress = currentProgress - 1">-</button>
-  <button (click)="currentProgress = currentProgress + 1">+</button>
-  <app-input-binding [progress]="currentProgress"></app-input-binding> -->
+
+<!-- <button (click)="currentProgress = currentProgress - 1">-</button>
+<button (click)="currentProgress = currentProgress + 1">+</button> -->
+<!-- <app-input-binding [progress]="currentProgress"></app-input-binding> -->
+<!-- <app-input2 [progress]="currentProgress" [progressColor]="'red'" [backgroundColor]="'yellow'"></app-input2> -->
 
 <!-- *********** Section 8 Output binding *********** -->
 
 <!-- <app-author-list></app-author-list> -->
+<!-- <app-todo-list></app-todo-list> -->
 
 <!-- *********** Section 9 Custom two-way data binding *********** -->
 <!-- <app-custom-twowaydatabinding></app-custom-twowaydatabinding> -->
+<!-- <app-sizer [(size)]="fontSize"></app-sizer>
+<div [style.font-size.px]="fontSize">{{ title }}</div> -->
 
 <!-- *********** Section 10 ViewChild/ViewChildren *********** -->
 <!-- #toggleComp la 1 instance cua app-toggle -->
+
 <!-- <button #toggleButton>Toggle</button>
+
+<button (click)="toggleComp.toggle()">Toggle Button</button>
+<app-toggle #toggleComp [(checked)]="isChecked" to></app-toggle>
+
 <button (click)="showLast = !showLast">Show Last Toggle</button>
 <input type="text" #nameInput value="HaLacDa" />
-<br>
-<app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
+<br />
 <app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
 <app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
 <ng-container *ngIf="showLast">
   <app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
-</ng-container>
- -->
+</ng-container> -->
 
+<!-- <app-sizer [(size)]="fontSize"></app-sizer>
+<app-sizer [(size)]="fontSize"></app-sizer>
+<app-sizer [(size)]="fontSize"></app-sizer>
+<app-sizer [(size)]="fontSize"></app-sizer>
+<app-sizer [(size)]="fontSize"></app-sizer>
+<button (click)="changeSizeOutSizer()">Change Size</button> -->
 <!-- day 11 typescript datatype
 
 let someString: string;
@@ -127,7 +144,7 @@ let someFunction: () => string; // một hàm trả về giá trị có type "st
 
 <!-- day 12 typescript advance datatype -->
 
-<!-- <app-flex [flexDirection]="'row'">
+<!-- <app-flex [flexDirection]="'column'">
   <div>Some</div>
   <div>Thing</div>
 </app-flex> -->
@@ -142,35 +159,48 @@ let someFunction: () => string; // một hàm trả về giá trị có type "st
   <h2 ngProjectAs="h1">This is a toggle component h2 but ngProjectAs="h1"</h2>
 
   <button>Click me</button>
-</app-toggle>
- -->
+</app-toggle> -->
 
 <!-- d14 ng-template ng-template-outlet ng-container -->
-<!--
-<div class="card">
+
+<!-- <div class="card mx-4">
   <div class="card-header">
     You have selected
-    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+    <ng-container [ngTemplateOutlet]="counterTmpl1"></ng-container>.
   </div>
   <div class="card-body">
-    There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> was
+    There are
+    <ng-container [ngTemplateOutlet]="counterTmpl2"></ng-container> was
     selected.
   </div>
   <div class="card-footer">
     You have selected
-    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+    <ng-container [ngTemplateOutlet]="counterTmpl2"></ng-container>.
   </div>
 </div>
 
-<ng-template #counterTmpl>
-  <span class="badge badge-secondary">{{ counter }}</span> items
+<ng-template #counterTmpl1>
+  <span class="badge badge-primary">{{ counter }}</span> items
+</ng-template>
+
+<ng-template #counterTmpl2>
+  <span class="badge badge-danger">{{ counter }}</span> items
 </ng-template> -->
+
+<!-- <ng-template #linkTemplate let-nav> {{ nav }} </ng-template>
+<app-tabs [navs]="navs" [linkTemplate]="linkTemplate"></app-tabs> -->
 
 <!-- d16 dependency injection -->
 
 <app-tab-group>
-  <app-tab-panel title="Tab 1">content tab 1</app-tab-panel>
-  <app-tab-panel title="Tab 2">content tab 2</app-tab-panel>
-  <app-tab-panel title="Tab 3">content tab 3</app-tab-panel>
-  <!-- More tab panel -->
+  <app-tab-panel title="Tab 1">First</app-tab-panel>
+  <app-tab-panel title="Tab 2">Second</app-tab-panel>
+  <app-tab-panel title="Tab 3">Third</app-tab-panel>
 </app-tab-group>
+
+<br />
+<app-tab-bs-group>
+  <app-tab-panel title="Tab 1">Tab1</app-tab-panel>
+  <app-tab-panel title="Tab 2">Tab2</app-tab-panel>
+  <app-tab-panel title="Tab 3">Tab3</app-tab-panel>
+</app-tab-bs-group>
