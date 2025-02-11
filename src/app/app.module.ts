@@ -23,6 +23,8 @@ import { TodoDetailsComponent } from './d8/todo-details/todo-details.component';
 import { SizerComponent } from './d9/sizer/sizer.component';
 import { TabsComponent } from './d14/tabs/tabs.component';
 import { TabBsGroupComponent } from './d16/tab-bs-group/tab-bs-group.component';
+import { CounterComponent } from './d17/counter/counter.component';
+import { TabPanelDirective } from './d16/tab-panel.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { TabBsGroupComponent } from './d16/tab-bs-group/tab-bs-group.component';
     SizerComponent,
     TabsComponent,
     TabBsGroupComponent,
+    CounterComponent,
+    TabPanelDirective,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

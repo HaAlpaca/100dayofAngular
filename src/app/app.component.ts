@@ -269,7 +269,6 @@ export class AppComponent {
   // @ViewChild('nameInput', { static: true })
   // nameInput: ElementRef<HTMLInputElement>;
 
-
   // @ViewChildren(SizerComponent) sizers: QueryList<SizerComponent>;
 
   // changeSizeOutSizer(): void {
@@ -290,7 +289,10 @@ export class AppComponent {
 
   // Section 14 ng-template ng-template-outlet ng-container
   counter = 1;
-  currentIndex = 0
+  currentIndex = 0;
   fontSize = 16;
   navs = ['Active', 'Link1', 'Link2', 'Disabled'];
+
+  // Section 17 content child content children
+  showTag4 = false;
 }

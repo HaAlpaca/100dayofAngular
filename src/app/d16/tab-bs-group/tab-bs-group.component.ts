@@ -19,7 +19,7 @@ import { TabGroupComponent } from '../tab-group/tab-group.component';
     </ul>
     <div class="tab-body" *ngIf="tabPanelList.length; else noTabs">
       <ng-container
-        *ngTemplateOutlet="tabPanelList[activeIndex].panelBody"
+        *ngTemplateOutlet="tabPanelList[activeIndex].getPanelBody()"
       ></ng-container>
     </div>
     <ng-template #noTabs> No more tabs. </ng-template>

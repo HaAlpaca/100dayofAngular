@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+} from '@angular/core';
 import { TabPanelComponent } from '../tab-panel/tab-panel.component';
 
 @Component({
@@ -17,7 +25,7 @@ import { TabPanelComponent } from '../tab-panel/tab-panel.component';
     </div>
     <div class="tab-body" *ngIf="tabPanelList.length; else noTabs">
       <ng-container
-        *ngTemplateOutlet="tabPanelList[activeIndex].panelBody"
+        *ngTemplateOutlet="tabPanelList[activeIndex].implicitBody"
       ></ng-container>
     </div>
     <ng-template #noTabs> No more tabs. </ng-template>
@@ -55,6 +63,15 @@ export class TabGroupComponent implements OnInit {
   @Output() tabActiveChange = new EventEmitter<number>();
   constructor() {}
 
+  @ContentChildren(TabPanelComponent)
+  tabPanels!: QueryList<TabPanelComponent>;
+
+  ngAfterContentInit() {
+    this.tabPanels.changes.subscribe((list) => {
+      this.tabPanelList = list.toArray();
+      console.log(this.tabPanelList);
+    });
+  }
   ngOnInit() {}
   selectItem(index: number) {
     this.activeIndex = index;

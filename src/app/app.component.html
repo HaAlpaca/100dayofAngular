@@ -191,7 +191,7 @@ let someFunction: () => string; // một hàm trả về giá trị có type "st
 <app-tabs [navs]="navs" [linkTemplate]="linkTemplate"></app-tabs> -->
 
 <!-- d16 dependency injection -->
-
+<!--
 <app-tab-group>
   <app-tab-panel title="Tab 1">First</app-tab-panel>
   <app-tab-panel title="Tab 2">Second</app-tab-panel>
@@ -203,4 +203,37 @@ let someFunction: () => string; // một hàm trả về giá trị có type "st
   <app-tab-panel title="Tab 1">Tab1</app-tab-panel>
   <app-tab-panel title="Tab 2">Tab2</app-tab-panel>
   <app-tab-panel title="Tab 3">Tab3</app-tab-panel>
+</app-tab-bs-group> -->
+
+<!-- d17 content child content children -->
+
+<button (click)="showTag4 = !showTag4">Toggle Tab 4</button>
+<app-tab-bs-group>
+  <app-tab-panel title="Tab 1">
+    <ng-template appTabPanelDirective>
+      content tab 1
+      <app-counter></app-counter>
+    </ng-template>
+  </app-tab-panel>
+  <app-tab-panel title="Tab 2">
+    <ng-template appTabPanelDirective>
+      content tab 2
+      <app-counter></app-counter>
+    </ng-template>
+  </app-tab-panel>
+  <app-tab-panel title="Tab 3">
+    <ng-template appTabPanelDirective>
+      content tab 3
+
+      <app-counter></app-counter>
+    </ng-template>
+  </app-tab-panel>
+  <app-tab-panel title="Tab 4" *ngIf="showTag4">
+    <ng-template appTabPanelDirective>
+      content tab 4
+      <app-counter></app-counter>
+    </ng-template>
+  </app-tab-panel>
 </app-tab-bs-group>
+
+<app-counter></app-counter>
