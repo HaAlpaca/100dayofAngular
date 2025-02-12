@@ -1,0 +1,34 @@
+<h1>Pipe</h1>
+<br />
+<p>{{ currentDate | date : "MMM dd, yyyy 'at' hh:mm a" }}</p>
+<br />
+<p>{{ currentDate | date : "shortDate" }}</p>
+<br />
+<p>{{ "HaAlpaca" | uppercase }}</p>
+<p>{{ "HaAlpaca" | lowercase }}</p>
+<br />
+<p>{{ "250" | currency : "VND" }}</p>
+<br />
+<p>{{ 22.243534534 | number : "1.0-9" }}</p>
+<br />
+{{ { name: "HaLacDa", age: 21 } | json }}
+<br />
+<p>{{ time }}</p>
+<br />
+<p>{{ interval$ | async }}</p>
+<br />
+<p>{{ addr | formatAddress : "params1" }}</p>
+<br />
+Full user list:
+<ul>
+  <li *ngFor="let user of user">
+    {{ user?.name }} is {{ user?.age }} years old.
+  </li>
+</ul>
+Adult user list:
+<ul>
+  <li *ngFor="let user of user | adultChecking">
+    {{ user.name }} is {{ user.age }} years old.
+  </li>
+</ul>
+<button (click)="addUser()">Add user</button>

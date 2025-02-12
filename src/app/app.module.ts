@@ -25,6 +25,10 @@ import { TabsComponent } from './d14/tabs/tabs.component';
 import { TabBsGroupComponent } from './d16/tab-bs-group/tab-bs-group.component';
 import { CounterComponent } from './d17/counter/counter.component';
 import { TabPanelDirective } from './d16/tab-panel.directive';
+import { PipeComponent } from './d18/pipe/pipe.component';
+import { FormatAddressPipe } from './d18/format-address.pipe';
+import { AdultCheckingPipe } from './d18/adult-checking.pipe';
+import { RxjsConceptsComponent } from './d19/rxjs-concepts/rxjs-concepts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,10 @@ import { TabPanelDirective } from './d16/tab-panel.directive';
     TabBsGroupComponent,
     CounterComponent,
     TabPanelDirective,
+    PipeComponent,
+    FormatAddressPipe,
+    AdultCheckingPipe,
+    RxjsConceptsComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
