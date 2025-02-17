@@ -29,6 +29,7 @@ import { PipeComponent } from './d18/pipe/pipe.component';
 import { FormatAddressPipe } from './d18/format-address.pipe';
 import { AdultCheckingPipe } from './d18/adult-checking.pipe';
 import { RxjsConceptsComponent } from './d19/rxjs-concepts/rxjs-concepts.component';
+import { RxjsTransformationOperatorComponent } from './d20/rxjs-transformation-operator/rxjs-transformation-operator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { RxjsConceptsComponent } from './d19/rxjs-concepts/rxjs-concepts.compone
     FormatAddressPipe,
     AdultCheckingPipe,
     RxjsConceptsComponent,
+    RxjsTransformationOperatorComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
